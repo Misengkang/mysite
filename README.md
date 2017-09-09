@@ -1,3 +1,4 @@
 # mysite
-a little test of django, a polls project
-First django project, from Django documentation -- Tutorial
+a little test of django
+First django project, a polls project
+From Django documentation -- Tutorial
