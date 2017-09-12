@@ -35,11 +35,11 @@ class Post(models.Model):
     # 摘要，默认 CharField 要求必须存入数据，设定 blank=True 参数值后就可以允许空值。
     excerpt = models.CharField(max_length=200, blank=True)
 
-    category = models.ForeignKey(Category)  # 关联文章和分类，多对一
+    category = models.ForeignKey(Category)  # 关联文章和分类，一对多
     tags = models.ManyToManyField(Tag, blank=True)  # 关联文章和标签，多对多
 
     # 作者从django.contrib.auth.models 导入，是django 写好的用户模型 model，专门处理注册登录等
-    # 这里把文章和User关联起来，多对一
+    # 这里把文章和User关联起来，一对多
     author = models.ForeignKey(User)
 
     def __str__(self):

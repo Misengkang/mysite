@@ -7,6 +7,9 @@ app_name = 'blog'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', views.archives, name='archives'),
+    url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
+
 ]
 
 
@@ -24,3 +27,9 @@ urlpatterns = [
 # （注意 Django 并不关心域名，而只关心去掉域名后的相对 URL）
 # detail 时被传递进去，实际上视图函数的调用就是这个样子：detail(request, pk=255)。
 # 我们这里必须从 URL 里捕获文章的 id，因为只有这样我们才能知道用户访问的究竟是哪篇文章。
+
+
+# 归档视图archives对应的 URL 的正则表达式两个括号括起来的地方是两个命名组参数，
+# Django 会从用户访问的 URL 中自动提取这两个参数的值，然后传递给其对应的视图函数。
+# 例如如果用户想查看 2017 年 3 月下的全部文章，他访问 /archives/2017/3/，
+# 那么 archives 视图函数的实际调用为：archives(request, year=2017, month=3)

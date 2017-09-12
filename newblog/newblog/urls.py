@@ -19,6 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls')),
+    url(r'', include('comments.urls')),
 ]
 
 # r''，这是一个空字符串。这里也可以写其它字符串，

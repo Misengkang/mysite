@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Category
 import markdown
+from comments.forms import CommentForm
 
 
 # 原先版本
@@ -34,4 +35,26 @@ def detail(request, pk):
                                       'markdown.extensions.codehilite',
                                       'markdown.extensions.toc',
                                   ])
-    return render(request, 'blog/detail.html', context={'post': post})
+    form = CommentForm()
+    comment_list = post.comment_set.all()  # 获取稳这篇文章下全部评论
+    context = {'post': post,               # 将文章，表单，以及评论作为模板变量传给detail.html
+               'form': form,
+               'comment_list': comment_list
+               }
+    return render(request, 'blog/detail.html', context=context)
+
+
+# 归档视图函数，根据文章发表年月来过滤，create_time是python的data对象，有一个year和month属性，
+# 一般用·调用，这里是作为函数的参数列表，用双下划线__代替点。
+def archives(request, year, month):
+    post_list = Post.objects.filter(create_time__year=year,
+                                    create_time__month=month
+                                    ).order_by('-create_time')
+    return render(request, 'blog/index.html', context={'post_list': post_list})
+
+
+# 分类视图
+def category(request, pk):
+    cate = get_object_or_404(Category, pk=pk)
+    post_list = Post.objects.filter(category=cate).order_by('-create_time')
+    return render(request, 'blog/index.html', context={'post_list': post_list})
