@@ -1,4 +1,5 @@
-# mysite
-a little test of django  
-First django project --a polls project  
-From Django documentation -- Tutorial
+# mysite,myblog,newblog
+  
+mysite -- learn django from Django documentation tutorial --a polls project  
+myblog -- a very simple blog test,reference: http://www.imooc.com/learn/790   
+newblog -- a blog sample,referencce:http://zmrenwu.com/post/2/
