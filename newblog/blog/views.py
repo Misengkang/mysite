@@ -28,6 +28,10 @@ def index(request):
 
 def detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+
+    # 阅读量 +1
+    post.increase_views()
+
     # 用markdown格式渲染html
     post.body = markdown.markdown(post.body,
                                   extensions=[
@@ -37,7 +41,7 @@ def detail(request, pk):
                                   ])
     form = CommentForm()
     comment_list = post.comment_set.all()  # 获取稳这篇文章下全部评论
-    context = {'post': post,               # 将文章，表单，以及评论作为模板变量传给detail.html
+    context = {'post': post,  # 将文章，表单，以及评论作为模板变量传给detail.html
                'form': form,
                'comment_list': comment_list
                }
