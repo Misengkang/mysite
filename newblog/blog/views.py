@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from .models import Post, Category
 import markdown
 from comments.forms import CommentForm
+from django.views.generic import ListView
 
 
-# 原先版本
+# 原先版本1.0
 # def index(request):
 #     return HttpResponse("欢迎访问")
 #
@@ -14,13 +15,20 @@ from comments.forms import CommentForm
 # # 然后我们便直接返回了一个 HTTP 响应给用户，这个 HTTP 响应也是 Django 帮我们封装好的，
 # # 它是类 HttpResponse 的一个实例，只是我们给它传了一个自定义的字符串参数。
 
-def index(request):
-    post_list = Post.objects.all().order_by('-create_time')
-    return render(request, 'blog/index.html', context={'post_list': post_list})
+# 原先版本2.0
+# def index(request):
+#     post_list = Post.objects.all().order_by('-create_time')
+#     return render(request, 'blog/index.html', context={'post_list': post_list})
+#
+#     # all() 方法从数据库里获取了全部的文章,返回的是一个 QuerySet,类似列表结构
+#     # 然后依据字段create_time 逆序排列，即新发表在前
+#     # render 渲染了 blog\index.html 模板文件，并且把包含文章列表数据的 post_list 变量传给了模板。
 
-    # all() 方法从数据库里获取了全部的文章,返回的是一个 QuerySet,类似列表结构
-    # 然后依据字段create_time 逆序排列，即新发表在前
-    # render 渲染了 blog\index.html 模板文件，并且把包含文章列表数据的 post_list 变量传给了模板。
+# 基于类的LisView类的通用视图
+class IndexView(ListView):             # ListView已经自动获取文章列表数据，并保存到变量，不需要render
+    model = Post                       # 指定获取的模型是Post
+    template_name = 'blog/index.html'  # 指定视图渲染的模板
+    context_object_name = 'post_list'  # 指定获取的模型列表数据保存的变量名 ，传递给模板
 
 
 # 开发流程：首先配置 URL，即把相关的 URL 和视图函数绑定在一起，

@@ -5,12 +5,19 @@ from . import views
 
 app_name = 'blog'
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    # 原先版本 url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),  # 调用类视图的as_view（）方法使类视图转换函数视图
     url(r'^post/(?P<pk>[0-9]+)/$', views.detail, name='detail'),
     url(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', views.archives, name='archives'),
     url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
 
 ]
+
+# 每一个 URL 对应着一个视图函数，这样当用户访问这个 URL 时，
+# Django 就知道调用哪个视图函数去处理这个请求了。
+# 在 Django 中 URL 模式的配置方式就是通过 url 函数将 URL 和视图函数绑定。
+# 比如 url(r'^$', views.index, name='index')，它的第一个参数是 URL 模式，
+# 第二个参数是视图函数 index。对 url 函数来说，第二个参数传入的值必须是一个函数
 
 
 # 当用户输入网址 http://127.0.0.1:8000 后，
