@@ -5,11 +5,12 @@ from . import views
 
 app_name = 'blog'
 urlpatterns = [
-    # 原先版本 url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'),原先版本
     url(r'^$', views.IndexView.as_view(), name='index'),  # 调用类视图的as_view（）方法使类视图转换函数视图
     url(r'^post/(?P<pk>[0-9]+)/$', views.detail, name='detail'),
     url(r'^archives/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/$', views.archives, name='archives'),
-    url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),
+    # url(r'^category/(?P<pk>[0-9]+)/$', views.category, name='category'),原先版本
+    url(r'^category/(?P<pk>[0-9]+)/$', views.CategoryView.as_view(), name='category'),
 
 ]
 

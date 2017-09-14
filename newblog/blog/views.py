@@ -25,8 +25,8 @@ from django.views.generic import ListView
 #     # render 渲染了 blog\index.html 模板文件，并且把包含文章列表数据的 post_list 变量传给了模板。
 
 # 基于类的LisView类的通用视图
-class IndexView(ListView):             # ListView已经自动获取文章列表数据，并保存到变量，不需要render
-    model = Post                       # 指定获取的模型是Post
+class IndexView(ListView):  # ListView已经自动获取文章列表数据，并保存到变量，不需要render
+    model = Post  # 指定获取的模型是Post
     template_name = 'blog/index.html'  # 指定视图渲染的模板
     context_object_name = 'post_list'  # 指定获取的模型列表数据保存的变量名 ，传递给模板
 
@@ -65,8 +65,23 @@ def archives(request, year, month):
     return render(request, 'blog/index.html', context={'post_list': post_list})
 
 
-# 分类视图
-def category(request, pk):
-    cate = get_object_or_404(Category, pk=pk)
-    post_list = Post.objects.filter(category=cate).order_by('-create_time')
-    return render(request, 'blog/index.html', context={'post_list': post_list})
+# # 分类视图原先版本
+# def category(request, pk):
+#     cate = get_object_or_404(Category, pk=pk)
+#     post_list = Post.objects.filter(category=cate).order_by('-create_time')
+#     return render(request, 'blog/index.html', context={'post_list': post_list})
+
+
+# 基于LisView类版本
+class CategoryView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):  # 重写父类的get_queryset 方法
+        cate = get_object_or_404(Category, pk=self.kwargs.get('pk'))
+        return super(CategoryView, self).get_queryset().filter(category=cate)
+        # 在类视图中，从 URL 捕获的命名组参数值保存在实例的 kwargs 属性（是一个字典）里，
+        # 非命名组参数值保存在实例的 args 属性（是一个列表）里
+        # 然后调用父类的get_queryset方法获得全部文章列表，接着对返回的结果
+        # 调用filter方法来筛选该分类下的全部文章并返回
