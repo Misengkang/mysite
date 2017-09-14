@@ -32,6 +32,7 @@ class Post(models.Model):
     body = models.TextField()  # 正文
     create_time = models.DateTimeField()  # 创建时间
     modified_time = models.DateTimeField()  # 最后一次修改时间
+    views = models.PositiveIntegerField(default=0)  # 新增views字段记录阅读量
 
     # 摘要，默认 CharField 要求必须存入数据，设定 blank=True 参数值后就可以允许空值。
     excerpt = models.CharField(max_length=200, blank=True)
@@ -46,8 +47,15 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'pk': self.pk})
     # reverse()函数用于构造url，所以，如果 Post 的 id（或者 pk，这里 pk 和 id 是等价的） 是 255 的话，
     # 那么 get_absolute_url 函数返回的就是 /post/255/ ，这样 Post 自己就生成了自己的 URL。
     # 此函数用于index模板返回标题文章详情页面（或者直接用URL模板标签链接）
+    def get_absolute_url(self):
+        return reverse('blog:detail', kwargs={'pk': self.pk})
+
+    # increase_views 方法首先将自身对应的 views 字段的值 +1，
+    # 然后调用 save 方法将更改后的值保存到数据库。每被浏览一次，加一
+    # 使用update_fields 参数来告诉 Django 只更新数据库中 views 字段的值
+    def increase_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
