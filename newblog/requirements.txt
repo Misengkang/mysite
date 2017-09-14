@@ -25,7 +25,6 @@ Pygments==2.2.0
 PyMySQL==0.7.11
 pyOpenSSL==17.2.0
 pytz==2017.2
-pywin32==220
 queuelib==1.4.2
 requests==2.18.4
 Scrapy==1.4.0
