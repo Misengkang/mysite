@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'', include('blog.urls')),
     url(r'', include('comments.urls')),
     url(r'^all/rss/$', AllPostsRssFeed(), name='rss'),
+    url(r'^search/', include('haystack.urls')),
 ]
 
 # r''，这是一个空字符串。这里也可以写其它字符串，
