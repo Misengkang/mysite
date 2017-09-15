@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # !/usr/bin/env python
 
-from ..models import Post, Category
+from ..models import Post, Category, Tag
 from django import template
 from django.db.models.aggregates import Count
 
@@ -38,3 +38,10 @@ def get_categories():
     # num_posts的值小于1的分类过滤掉。因为num_posts的值小于1
     # 表示该分类下没有文章，没有文章的分类我们不希望它在页面中显示。
     return Category.objects.annotate(num_posts=Count('post')).filter(num_posts__gt=0)
+
+
+# 自定义标签云模板标签
+@register.simple_tag
+def get_tags():
+    # 记得在顶部引入 Tag model
+    return Tag.objects.annotate(num_posts=Count('post')).filter(num_posts__gt=0)

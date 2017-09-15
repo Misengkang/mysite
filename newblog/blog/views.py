@@ -217,3 +217,14 @@ class CategoryView(ListView):
         # 非命名组参数值保存在实例的 args 属性（是一个列表）里
         # 然后调用父类的get_queryset方法获得全部文章列表，接着对返回的结果
         # 调用filter方法来筛选该分类下的全部文章并返回
+
+
+# 基于LisView类版本的标签云视图
+class TagView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, pk=self.kwargs.get('pk'))
+        return super(TagView, self).get_queryset().filter(tags=tag)
