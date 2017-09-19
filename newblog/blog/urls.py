@@ -2,8 +2,7 @@
 # !/usr/bin/env python
 from django.conf.urls import url
 from . import views
-from django.conf.urls.static import static
-from django.conf import settings
+
 
 app_name = 'blog'
 urlpatterns = [
@@ -17,7 +16,7 @@ urlpatterns = [
     url(r'^tag/(?P<pk>[0-9]+)/$', views.TagView.as_view(), name='tag'),
     # url(r'^search/$', views.search, name='search') 原先搜索视图
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 # 每一个 URL 对应着一个视图函数，这样当用户访问这个 URL 时，
 # Django 就知道调用哪个视图函数去处理这个请求了。
