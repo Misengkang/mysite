@@ -45,7 +45,7 @@ class Post(models.Model):
     # 作者从django.contrib.auth.models 导入，是django 写好的用户模型 model，专门处理注册登录等
     # 这里把文章和User关联起来，一对多
     author = models.ForeignKey(User)
-    icon = models.ImageField(u'图片', upload_to='img/%Y/%m/%d')
+    icon = models.ImageField(u'图片', upload_to='img/%Y/%m/%d', blank=True, null=True)
 
     def __str__(self):
         return self.title
