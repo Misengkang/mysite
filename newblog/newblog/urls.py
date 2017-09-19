@@ -25,8 +25,7 @@ urlpatterns = [
     url(r'', include('comments.urls')),
     url(r'^all/rss/$', AllPostsRssFeed(), name='rss'),
     url(r'^search/', include('haystack.urls')),
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # r''，这是一个空字符串。这里也可以写其它字符串，
 # Django 会把这个字符串和后面 include 的 urls.py 文件中的 URL 拼接。
