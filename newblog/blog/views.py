@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 from .models import Post, Category, Tag
 import markdown
 from comments.forms import CommentForm
@@ -239,11 +238,22 @@ class PostDetailView(DetailView):
 
 # 归档视图函数，根据文章发表年月来过滤，create_time是python的data对象，有一个year和month属性，
 # 一般用·调用，这里是作为函数的参数列表，用双下划线__代替点。
-def archives(request, year, month):
-    post_list = Post.objects.filter(create_time__year=year,
-                                    create_time__month=month
-                                    ).order_by('-create_time')
-    return render(request, 'blog/index.html', context={'post_list': post_list})
+# def archives(request, year, month):
+#     post_list = Post.objects.filter(create_time__year=year,
+#                                     create_time__month=month
+#                                     ).order_by('-create_time')
+#     return render(request, 'blog/index.html', context={'post_list': post_list})
+
+# 基于类的归档视图函数
+class ArchivesView(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'post_list'
+
+    def get_queryset(self):
+        year = self.kwargs.get('year')
+        month = self.kwargs.get('year')
+        return super(ArchivesView, self).get_queryset().filter(create_time__year=year, create_time__month=month)
 
 
 # # 分类视图原先版本
