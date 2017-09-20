@@ -31,7 +31,7 @@ class IndexView(ListView):  # ListView已经自动获取文章列表数据，并
     model = Post  # 指定获取的模型是Post
     template_name = 'blog/index.html'  # 指定视图渲染的模板
     context_object_name = 'post_list'  # 指定获取的模型列表数据保存的变量名 ，传递给模板
-    paginate_by = 2  # 指定 paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
+    paginate_by = 8  # 指定 paginate_by 属性后开启分页功能，其值代表每一页包含多少篇文章
 
     def get_context_data(self, **kwargs):  # 增加额外的模板变量给context
         """
