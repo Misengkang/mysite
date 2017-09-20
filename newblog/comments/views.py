@@ -43,7 +43,7 @@ def post_comment(request, post_pk):
             # 因为 Post 和 Comment 是 ForeignKey 关联的，
             # 因此使用 post.comment_set.all() 反向查询全部评论。
             # 具体请看下面的讲解。
-            comment_list = post.comment_set.all()
+            comment_list = post.comment_set.all()  # 等价于Comment.objects.filter(post=post)
             context = {'post': post,
                        'form': form,
                        'comment_list': comment_list
@@ -51,3 +51,6 @@ def post_comment(request, post_pk):
             return render(request, 'blog/detail.html', context=context)
     # 不是 post 请求，说明用户没有提交数据，重定向到文章详情页。
     return redirect(post)
+
+    # redirect 既可以接收一个 URL 作为参数，也可以接收一个模型的实例作为参数
+    # 例如这里的 post，这个实例必须实现了 get_absolute_url 方法）
