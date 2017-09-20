@@ -61,7 +61,7 @@ class Post(models.Model):
     # 使用update_fields 参数来告诉 Django 只更新数据库中 views 字段的值
     def increase_views(self):
         self.views += 1
-        self.save(update_fields=['views'])
+        self.save(update_fields=['views'])  # 参数update_fields告诉django只更新views值以提高效率
 
     # 定义自动加摘要方法
     def save(self, *args, **kwargs):
