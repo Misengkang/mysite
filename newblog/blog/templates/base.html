@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-{% load staticfiles %}   <!--引入静态文件-->
+{% load staticfiles %}   <!--引入静态文件模板标签-->
 {% load blog_tags %}   <!--引入自定义的模板标签-->
 <html>
 <head>
-    <title>Black &amp; Blue</title>
+    <title>尘埃</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -26,6 +26,7 @@
         span.highlighted {
             color: red;
         }
+
     </style>
 </head>
 
@@ -35,7 +36,8 @@
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-8">
                 <div class="logo">
-                    <h1><a href="{% url 'blog:index' %}"><b>DIRT</b></a></h1>
+                    <h1><a href="{% url 'blog:index' %}"><b>尘埃</b><span style="font-family:Kaiti;font-size:100px">
+                        青山依旧，几度夕阳，愿与不愿，都是尘埃</span></a></h1>
                 </div>
             </div><!-- col-md-4 -->
             <div class="col-md-8 col-sm-7 col-xs-4">
@@ -83,15 +85,15 @@
                 {% endblock toc %}
                 <div class="widget widget-recent-posts">
                     <h3 class="widget-title">最新文章</h3>
-                     {% get_recent_posts as recent_post_list %}
+                    {% get_recent_posts as recent_post_list %}
                     <ul>
                         {% for post in recent_post_list %}
                         <li>
                             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                         </li>
-                            {% empty %}
-                            暂无文章！
-                            {% endfor %}
+                        {% empty %}
+                        暂无文章！
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="widget widget-archives">
@@ -100,9 +102,9 @@
                     <ul>
                         {% for date in date_list %}
                         <li>
-                          <a href="{% url 'blog:archives' date.year date.month %}">
-                            {{ date.year }} 年 {{ date.month }} 月
-                          </a>
+                            <a href="{% url 'blog:archives' date.year date.month %}">
+                                {{ date.year }} 年 {{ date.month }} 月
+                            </a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -114,7 +116,7 @@
                         {% for category in category_list %}
                         <li>
                             <a href="{% url 'blog:category' category.pk %}">{{ category.name }}
-                            <span class="post-count">({{ category.num_posts }})</span>
+                                <span class="post-count">({{ category.num_posts }})</span>
                             </a>
                             <!--<span>显示的新增该分类下文章数目，暂时占位代替,已填充-->
                         </li>
