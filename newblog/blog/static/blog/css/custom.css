@@ -123,7 +123,7 @@ img {
  */
 
 .logo h1 a {
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .logo h1 a:hover {
@@ -147,7 +147,7 @@ img {
 }
 
 .main-nav a {
-    color: #FFFFFF !important;
+    color: #fff !important;
     padding: 0 0 5px 0 !important;
     margin-right: 30px;
     font-family: 'Lato', sans-serif;
@@ -191,8 +191,8 @@ img {
     overflow: hidden;
     padding: 0 0 5px 0 !important;
     max-width: 0;
-    border-bottom: 1px solid #000;
-    color: #000;
+    border-bottom: 1px solid #fff;
+    color: #F8F8F8;
     content: attr(data-hover);
     white-space: nowrap;
     -webkit-transition: max-width 0.5s;
