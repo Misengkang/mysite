@@ -76,7 +76,7 @@
 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
 <div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
 
-<div class="content-body" style="position:relative;top:100px">
+<div class="content-body" style="position:relative;top:100px;background-color:#f3f3f3">
     <div class="container">
         <div class="row">
             <main class="col-md-8">
@@ -86,7 +86,7 @@
             <aside class="col-md-4">
                 {% block toc %}
                 {% endblock toc %}
-                <div class="widget widget-recent-posts">
+                <div class="widget widget-recent-posts" >
                     <h3 class="widget-title">最新文章</h3>
                     {% get_recent_posts as recent_post_list %}
                     <ul>
@@ -99,7 +99,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="widget widget-archives">
+                <div class="widget widget-archives" >
                     <h3 class="widget-title">发布时间</h3>
                     {% archives as date_list %}
                     <ul>
@@ -112,7 +112,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="widget widget-category">
+                <div class="widget widget-category" >
                     <h3 class="widget-title">分类</h3>
                     {% get_categories as category_list %}
                     <ul>
@@ -128,7 +128,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="widget widget-tag-cloud">
+                <div class="widget widget-tag-cloud" >
                     <h3 class="widget-title">标签云</h3>
                     {% get_tags as tag_list %}
                     <ul>
@@ -141,8 +141,8 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="rss">
-                    <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+                <div class="rss" style="background: #fff;padding: 10px 0 10px 20px;border-radius:10px">
+                    <a href="{% url 'rss' %}" style="color:#259;font-weight:600"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
                 </div>
             </aside>
         </div>
