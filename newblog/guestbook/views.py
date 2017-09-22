@@ -5,6 +5,6 @@ from .models import Message
 from django.shortcuts import render, get_object_or_404, redirect
 
 
-def guest(request):
-    message_list = Message.objects.all()
-    return render(request, 'blog/message.html', context={'message_list': message_list})
+def message(request):
+    messages = Message.objects.all()
+    return render(request, 'blog/message.html', context={'messages': messages})

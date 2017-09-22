@@ -5,7 +5,7 @@
         <p>{{ error_msg }}</p>
     {% endif %}
 <h3 style="color:#259">欢迎留言！</h3>
-<form action="{% url 'guestbook:guest' %}" method="post" class="comment-form">
+<form action="{% url 'guestbook:message' %}" method="post" class="comment-form">
     {% csrf_token %}
 
     <label class="col-md-4">
@@ -37,7 +37,7 @@
 <div class="comment-list-panel">
     <h3 style="color:#259">留言列表，共 <span>{{ message_set.count }}</span> 条留言</h3>
     <ul class="comment-list list-unstyled">
-        {% for message in message_list %}
+        {% for message in messages %}
         <li class="comment-item">
             <span class="nickname">{{ message.visitor_name }}</span>
             <time class="submit-date">{{ message.message_time. }}</time>
