@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Post, Category, Tag
+from ..comments.models import Comment
+from ..guestbook.models import Message
 
 admin.site.site_header = "Kangkang Blog"
 
@@ -13,3 +15,5 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category)
 admin.site.register(Tag)
+admin.site.register(Comment)
+admin.site.register(Message)
