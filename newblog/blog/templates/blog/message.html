@@ -8,27 +8,22 @@
 <form action="{% url 'guestbook:save' %}" method="post" class="comment-form">
     {% csrf_token %}
         <div class="row">
-            <label>
-                <span>名字 :</span>
+            <div class="col-md-4">
+                <label  style="color:#259">名字：</label>
                 <input id="name" type="text" name="visitor_name" class="error" class="col-md-4"/>
                 <div class="error-msg"></div>
-            </label>
-
-            <label>
-                <span>邮箱 :</span>
+            </div>
+            <div class="col-md-4" style="width:66.6666%">
+                <label  style="color:#259">邮箱：</label>
                 <input id="email" type="email" value="" name="visitor_email" class="col-md-4"/>
                 <div class="error-msg"></div>
-            </label>
-
-            <label>
-                <span>留言 :</span>
-                <textarea id="message" name="message_text" class="col-md-12" ></textarea>
+            </div>
+            <div class="col-md-12" >
+                <label  style="color:#259">留言：</label>
+                <textarea id="message" name="message_text" class="col-md-12" style="min-height: 100px"></textarea>
                 <div class="error-msg"></div>
-            </label>
-            <label>
-                <span>&nbsp;</span>
-                <input type="submit" class="button" value="提交"/>
-            </label>
+                <button type="submit" class="comment-btn" style="border-radius:5px">提交</button>
+            </div>
         </div>
 </form>
 
@@ -38,7 +33,7 @@
         {% for message in messages %}
         <li class="comment-item">
             <span class="nickname">{{ message.visitor_name }}</span>
-            <time class="submit-date">{{ message.message_time. }}</time>
+            <time class="submit-date">{{ message.message_time}}</time>
             <div class="text">
                 {{ message.message_text }}
             </div>
