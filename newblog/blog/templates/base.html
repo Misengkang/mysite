@@ -35,7 +35,7 @@
 
 <body>
 <div class="container" style="top:0;left:0;padding:0px;width:100%;position:fixed;z-index:9999">
-    <header id="site-header" style="background-color:#086ed5" >
+    <header id="site-header" style="background:linear-gradient(#086ed5,#055db5)" >
         <div class="row"  >
             <div class="col-md-4 col-sm-5 col-xs-8" >
                 <div class="logo" >
@@ -76,14 +76,14 @@
 <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
 <div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
 
-<div class="content-body" style="position:relative;top:100px;background-color:#f3f3f3">
+<div class="content-body" style="position:relative;top:78px;background-color:#f3f3f3">
     <div class="container">
         <div class="row">
-            <main class="col-md-8">
+            <main class="col-md-8" style="margin-top:20px">
                 {% block main %}    <!--block标签是占位框，main是取得名字-->
                 {% endblock main %} <!--block里空时不显示其内容，-->
             </main>
-            <aside class="col-md-4">
+            <aside class="col-md-4" style="margin-top:20px">
                 {% block toc %}
                 {% endblock toc %}
                 <div class="widget widget-recent-posts" >
@@ -148,7 +148,7 @@
         </div>
     </div>
 </div>
-<footer id="site-footer" style="position:relative;top:50px">
+<footer id="site-footer" style="position:relative;top:30px">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
