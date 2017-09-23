@@ -5,27 +5,31 @@
         <p>{{ error_msg }}</p>
     {% endif %}
 <h3 style="color:#259">欢迎留言！</h3>
-<form action="{% url 'guestbook:message' %}" method="post" class="comment-form">
+<form action="{% url 'guestbook:save' %}" method="post" class="comment-form">
     {% csrf_token %}
         <div class="row">
-            <div class="col-md-4">
-                <label for="{{ form.visitor_name.id_for_label }}" style="color:#259">名字：</label>
-                {{ form.name }}
-                {{ form.name.errors }}
-            </div>
-            <div class="col-md-4" style="width:66.6666%">
-                <label for="{{ form.visitor_email.id_for_label }}" style="color:#259">邮箱：</label>
-                {{ form.email }}
-                {{ form.email.errors }}
-            </div>
-            <div class="col-md-12">
-                <label for="{{ form.message_text_for_label }}" style="color:#259">留言：</label>
-                {{ form.text }}
-                {{ form.text.errors }}
-                <button type="submit" class="comment-btn" style="border-radius:5px">发表</button>
-            </div>
-        </div>
+            <label>
+                <span>名字 :</span>
+                <input id="name" type="text" name="visitor_name" class="error" class="col-md-4"/>
+                <div class="error-msg"></div>
+            </label>
 
+            <label>
+                <span>邮箱 :</span>
+                <input id="email" type="email" value="" name="visitor_email" class="col-md-4"/>
+                <div class="error-msg"></div>
+            </label>
+
+            <label>
+                <span>留言 :</span>
+                <textarea id="message" name="message_text" class="col-md-12" ></textarea>
+                <div class="error-msg"></div>
+            </label>
+            <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="提交"/>
+            </label>
+        </div>
 </form>
 
 <div class="comment-list-panel">

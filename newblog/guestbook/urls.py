@@ -8,4 +8,5 @@ from . import views
 app_name = 'guestbook'
 urlpatterns = [
     url(r'^message/$', views.message, name='message'),
+    url(r'^save/$', views.save, name='save'),
 ]
