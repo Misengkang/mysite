@@ -4,7 +4,8 @@
     {% if error_msg %}
         <p>{{ error_msg }}</p>
     {% endif %}
-<h3 style="color:#259">欢迎留言！</h3>
+<img src="https://i.imgur.com/UieXLdn.png"  alt="Smiley face" style="border-radius:15px">
+<h3 style="color:#259；margin: 30px 0px 30px;">欢迎留言！</h3>
 <form action="{% url 'guestbook:save' %}" method="post" class="comment-form">
     {% csrf_token %}
         <div class="row">
