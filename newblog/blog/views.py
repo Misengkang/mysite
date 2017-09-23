@@ -305,3 +305,7 @@ def search(request):
 
 def about(request):
     return render(request, 'blog/about.html')
+
+
+def todo(request):
+    return render(request, 'blog/todo.html')

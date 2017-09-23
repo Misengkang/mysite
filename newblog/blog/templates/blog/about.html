@@ -24,6 +24,7 @@
 
     <style>
 		.about-me {
+			background:#086ed5;
 			background-image: url(https://i.imgur.com/3sNgtbo.jpg);
 			margin-top: 50px;
 			border-radius:20px
@@ -53,9 +54,9 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="首页">首页</a></li>
-                            <li class="cl-effect-11"><a href="full-width.html" data-hover="博客">博客</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blog:todo' %}" data-hover="博客">博客</a></li>
                             <li class="cl-effect-11"><a href="{% url 'guestbook:message' %}" data-hover="留言">留言</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -108,10 +109,10 @@
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
         <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="full-width.html">博客</a></li>
-            <li><a href="about.html">关于</a></li>
-            <li><a href="contact.html">联系</a></li>
+            <li><a href="{% url 'blog:index' %}">首页</a></li>
+            <li><a href="{% url 'blog:todo' %}">博客</a></li>
+            <li><a href="{% url 'guestbook:message' %}">留言</a></li>
+            <li><a href="{% url 'blog:about' %}">关于</a></li>
         </ul>
     </nav>
 </div>
