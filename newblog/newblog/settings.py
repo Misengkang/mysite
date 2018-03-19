@@ -81,6 +81,9 @@ DATABASES = {
         'NAME': 'my_blog',
         'USER': 'root',
         'PASSWORD': 'h19731989',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', innodb_strict_mode=1",
+        },
         'HOST': '',
         'PORT': '3306',
     }
