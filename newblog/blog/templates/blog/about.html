@@ -57,6 +57,14 @@
                             <li class="cl-effect-11"><a href="{% url 'discovery:d_index' %}" data-hover="发现">发现</a></li>
                             <li class="cl-effect-11"><a href="{% url 'guestbook:message' %}" data-hover="留言">留言</a></li>
                             <li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
+                                 {% if user.is_authenticated %}
+                       <li class="cl-effect-11"> <a href="">你好{{user.username}}！</a></li>
+                    <li class="cl-effect-11">  <a href="{% url 'users:logout' %}" data-hover="注销">注销</a></li>
+                    {% else %}
+                      <li class="cl-effect-11"> <a href ="{% url 'users:register' %}" data-hover="注册">注册</a></li>
+                      <li class="cl-effect-11"> <a href ="{% url 'users:login' %}" data-hover="登录">登录</a></li>
+                    {% endif %}
+
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
