@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'comments',
     'haystack',
     'guestbook',
-    'users'
+    'users',
+    'discovery',
 ]
 
 MIDDLEWARE = [

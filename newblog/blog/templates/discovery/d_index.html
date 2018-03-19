@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Discovery</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'discovery/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'discovery/css/main.css' %}" />
+
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'discovery/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'discovery/css/ie8.css' %}" /><![endif]-->
+
+
+
+
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper" style="
+			background-image: url(https://i.imgur.com/3sNgtbo.jpg);
+			background-repeat:repeat-x;
+			background-attachment: fixed;
+
+		">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="{% url 'blog:index' %}">返回首页</a></h1>
+						<nav>
+							<a href="#menu">目录</a>
+
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="{% url 'blog:index' %}">返回首页</a></li>
+								<li><a href="generic.html">电影</a></li>
+								<li><a href="elements.html">小说</a></li>
+								<li><a href="#">生活</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<div class="logo"><span class="icon fa-diamond"></span></div>
+							<h2>泛娱乐</h2>
+							<p>爱生活，爱电影，爱小说，爱运动。。。</a></p>
+						</div>
+					</section>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+
+						<!-- One -->
+							<section id="one" class="wrapper spotlight style1">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'discovery/images/01.jpg' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">泛电影</h2>
+										<p>电影就是电影</p>
+										<a href="#" class="special">Learn more</a>
+									</div>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="wrapper alt spotlight style2">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'discovery/images/02.png' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">泛小说</h2>
+										<p>。。。。。。</p>
+										<a href="#" class="special">Learn more</a>
+									</div>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<section id="three" class="wrapper spotlight style3">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'discovery/images/03.jpg' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">泛生活</h2>
+										<p>To be continued...</p>
+										<a href="#" class="special">Learn more</a>
+									</div>
+								</div>
+							</section>
+
+						<!-- Four -->
+							<section id="four" class="wrapper alt style1">
+								<div class="inner">
+									<h2 class="major">Title...</h2>
+									<p>...</p>
+									<section class="features">
+										<article>
+											<a href="#" class="image"><img src="https://i.imgur.com/KlpW08u.jpg" title="source: imgur.com"  height="253.73" alt=""/></a>
+											<h3 class="major">A</h3>
+											<p></p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="https://i.imgur.com/orJbZY2.jpg" title="source: imgur.com" height="253.73" alt=""/></a>
+											<h3 class="major">B</h3>
+											<p></p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="https://i.imgur.com/toLhmTK.jpg" title="source: imgur.com" height="253.73" alt="" /></a>
+											<h3 class="major">C</h3>
+											<p></p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="https://i.imgur.com/OZY4Id7.jpg" title="source: imgur.com" height="253.73" alt="" /></a>
+											<h3 class="major">D</h3>
+											<p></p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+									</section>
+									<ul class="actions">
+										<li><a href="#" class="button">Browse All</a></li>
+									</ul>
+								</div>
+							</section>
+
+					</section>
+
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+
+							<ul class="copyright">
+								<li>&copy;  All rights reserved.</li><li>Based on <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'discovery/js/skel.min.js' %}"></script>
+			<script src="{% static 'discovery/js/jquery.min.js' %}"></script>
+			<script src="{% static 'discovery/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'discovery/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'discovery/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'discovery/js/main.js' %}"></script>
+
+
+
+
+	</body>
+</html>

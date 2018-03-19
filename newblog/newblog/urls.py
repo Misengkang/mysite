@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^search/', include('haystack.urls')),
     url(r'', include('guestbook.urls')),
     url(r'^users/', include('users.urls')),
+    url(r'^discovery/', include('discovery.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # r''，这是一个空字符串。这里也可以写其它字符串，
