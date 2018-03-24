@@ -54,7 +54,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="首页">首页</a></li>
-                            <li class="cl-effect-11"><a href="{% url 'discovery:d_index' %}" data-hover="发现">发现</a></li>
+
                             <li class="cl-effect-11"><a href="{% url 'guestbook:message' %}" data-hover="留言">留言</a></li>
                             <li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="关于">关于</a></li>
                                  {% if user.is_authenticated %}
@@ -64,7 +64,7 @@
                       <li class="cl-effect-11"> <a href ="{% url 'users:register' %}" data-hover="注册">注册</a></li>
                       <li class="cl-effect-11"> <a href ="{% url 'users:login' %}" data-hover="登录">登录</a></li>
                     {% endif %}
-
+                        <li class="cl-effect-11"><a href="{% url 'discovery:d_index' %}" data-hover="发现">发现</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
