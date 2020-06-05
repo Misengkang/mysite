@@ -10,7 +10,7 @@ chardet==3.0.4
 constantly==15.1.0
 cryptography==2.0.3
 cssselect==1.0.1
-Django==1.11.4
+Django==1.11.29
 django-haystack==2.6.1
 hyperlink==17.3.0
 idna==2.6
